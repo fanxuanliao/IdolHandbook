@@ -1,0 +1,79 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.month-switch {
+    border: none;
+    background-color: #e4e4e4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.month-switch:hover {
+    background-color: #d4d4d4;
+}
+
+.month-label {
+    font-weight: bold;
+}
+
+.weekdays {
+    margin-bottom: 10px;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    border: 1px solid #ddd;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+}
+
+.day.today {
+    background-color: #007bff;
+    color: white;
+}
+
+/* RWD */
+@media (max-width: 768px) {
+    .calendar-container {
+        width: 95%;
+        margin: 2.5% auto;
+        height: auto;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Pad Size */
+    .calendar-container {
+        width: 70%;
+
+    }
+}

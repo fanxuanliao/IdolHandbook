@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Calendar from './Calendar';
 
-function App() {
+const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <Calendar onSelectDate={handleSelectDate} />
+      <div className="diary-container">
+        {/* 這裡放置你的日記編輯元件或內容 */}
+      </div>
     </div>
   );
-}
+};
+
+// Handle select date
+const handleSelectDate = (date: Date) => {
+  console.log("Selected date:", date);
+};
 
 export default App;

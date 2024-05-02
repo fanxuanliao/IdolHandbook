@@ -1,38 +1,48 @@
-.App {
-  text-align: center;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html {
+  font-size: 16px;
+  /* 預設字型大小，可基於此設置 rem 值 */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* 字型 */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  width: 100%;
+  /* 佔滿整個螢幕的寬度 */
+  height: 95vh;
+  /* 設置高度 */
 }
 
-.App-link {
-  color: #61dafb;
+.calendar-container {
+  /* flex-grow, flex-shrink, flex-basis */
+  flex: 0 0 47%;
+  background: #fff;
+  width: 47%;
+  height: 95vh;
+  margin: 2.5vh 1.5% 2.5vh 5%;
+  overflow: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.diary-container {
+  flex: 1;
+  /* 佔據剩餘的空間 */
+  height: 95vh;
+  /* 設計日記容器的樣式 */
+  margin: 2.5vh 5% 2.5vh 1.5%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  background-size: 20px 20px;
+  background-image:
+    linear-gradient(to right, #EEE 1px, transparent 1px),
+    linear-gradient(to bottom, #EEE 1px, transparent 1px);
 }
