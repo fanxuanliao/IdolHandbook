@@ -22,6 +22,8 @@ const Calendar: React.FC<CalendarProps> = () => {
 
     const days = getDaysInMonth(currentDate.getMonth(), currentDate.getFullYear());
     const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
+    const paddingDays = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // Set padding days for the first week
 
     return (
         <div className="calendar-container">
@@ -40,7 +42,9 @@ const Calendar: React.FC<CalendarProps> = () => {
                 ))}
             </div>
             <div className="grid grid-cols-7 gap-4">
-                {/* 假設你想顯示每個月的日期 */}
+                {[...Array(paddingDays)].map((_, index) => (
+                    <div key={index} className="day padding"></div>
+                ))}
                 {days.map((day, index) => (
                     <div className="day" key={index}>
                         {day.getDate()}
