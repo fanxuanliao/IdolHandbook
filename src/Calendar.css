@@ -3,15 +3,20 @@
 @import 'tailwindcss/utilities';
 
 .controls {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     margin-bottom: 20px;
 }
 
+.month-switch-group {
+    display: flex;
+    gap: 10px;
+}
+
 .month-switch {
     border: none;
-    background-color: #e4e4e4;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -23,6 +28,10 @@
 
 .month-label {
     font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .weekdays {
