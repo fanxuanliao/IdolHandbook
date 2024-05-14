@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
 import Calendar from './Calendar';
+import DiaryEntry from './DiaryEntry';
 
 const App: React.FC = () => {
 
   return (
     <div className="app-container">
       <Calendar onSelectDate={handleSelectDate} />
-      <div className="diary-container">
-        {/* 這裡放置你的日記編輯元件或內容 */}
-      </div>
+      <DiaryEntry onSave={handleSaveEntry} />
     </div>
   );
 };
@@ -19,4 +18,7 @@ const handleSelectDate = (date: Date) => {
   console.log("Selected date:", date);
 };
 
+const handleSaveEntry = (entry: String) => {
+  console.log(entry);
+};
 export default App;

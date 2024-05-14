@@ -55,7 +55,6 @@
     justify-content: center;
     height: 100px;
     border: 1px solid #ddd;
-    /* border-radius: 5px; */
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -83,6 +82,5 @@
     /* Pad Size */
     .calendar-container {
         width: 70%;
-
     }
 }
