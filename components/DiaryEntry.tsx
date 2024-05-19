@@ -1,12 +1,8 @@
-
 import React, { useState } from 'react';
-import './DiaryEntry.scss';
-
 
 type DiaryEntryProps = {
     onSave: (entry: string) => void;
 };
-
 
 const DiaryEntry: React.FC<DiaryEntryProps> = ({ onSave }) => {
     const [entry, setEntry] = useState('');
@@ -28,15 +24,14 @@ const DiaryEntry: React.FC<DiaryEntryProps> = ({ onSave }) => {
     };
 
     return (
-        <div className="diary-container">
+        <div className="flex flex-col h-full w-full p-5">
             <textarea
+                className="flex-grow w-full p-2 border border-gray-300 rounded resize-none outline-none placeholder-gray-400"
                 value={entry}
                 onChange={(e) => setEntry(e.target.value)}
                 placeholder="寫下今天的心情..."
             ></textarea>
-            <div>
-                <button onClick={handleSave}>儲存</button>
-            </div>
+            <button className="mt-3 p-2 bg-green-500 text-white rounded" onClick={handleSave}>儲存</button>
         </div>
     );
 };

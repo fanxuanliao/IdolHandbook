@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import './Calendar.css';
 
 type CalendarProps = {
     onSelectDate: (date: Date) => void;
 };
 
-const Calendar: React.FC<CalendarProps> = () => {
+const Calendar: React.FC<CalendarProps> = ({ onSelectDate }) => {
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
 
     const getDaysInMonth = (month: number, year: number): Date[] => {
@@ -22,43 +21,44 @@ const Calendar: React.FC<CalendarProps> = () => {
     const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
     const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDay();
-    const paddingDaysBefore = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // Set padding days for the first week
-    const paddingDaysAfter = lastDayOfMonth === 0 ? 0 : 7 - lastDayOfMonth; // Set padding days for the last week
+    const paddingDaysBefore = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
+    const paddingDaysAfter = lastDayOfMonth === 0 ? 0 : 7 - lastDayOfMonth;
 
     return (
-        <div className="calendar-container">
-            <div className="controls">
-                <span className="month-label">{currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}</span>
-                <div className='month-switch-group'>
-                    <button className="month-switch" onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1))}>
+        <div className="p-5 border border-gray-300 rounded max-w-lg mx-auto">
+            <div className="flex justify-between items-center mb-5">
+                <span className="font-bold flex-grow text-center">
+                    {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
+                </span>
+                <div className="flex gap-2">
+                    <button className="bg-gray-300 p-2 rounded" onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1))}>
                         {'<'}
                     </button>
-                    <button className="month-switch" onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1))}>
+                    <button className="bg-gray-300 p-2 rounded" onClick={() => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1))}>
                         {'>'}
                     </button>
                 </div>
             </div>
-            <div className="weekdays grid grid-cols-7 gap-4">
+            <div className="grid grid-cols-7 gap-2 mb-2">
                 {weekdays.map((weekday, index) => (
-                    <div className="weekday" key={index}>{`${weekday}`}</div>
+                    <div className="p-2 text-center" key={index}>{weekday}</div>
                 ))}
             </div>
-            <div className="grid grid-cols-7 gap-4">
+            <div className="grid grid-cols-7 gap-2">
                 {[...Array(paddingDaysBefore)].map((_, index) => (
-                    <div key={index} className="day padding"></div>
+                    <div key={index} className="p-2"></div>
                 ))}
                 {days.map((day, index) => (
-                    <div className="day" key={index}>
+                    <div className="p-2 text-center border border-gray-200 rounded" key={index}>
                         {day.getDate()}
                     </div>
                 ))}
                 {[...Array(paddingDaysAfter)].map((_, index) => (
-                    <div key={index} className="day padding"></div>
+                    <div key={index} className="p-2"></div>
                 ))}
             </div>
         </div>
     );
 };
-
 
 export default Calendar;

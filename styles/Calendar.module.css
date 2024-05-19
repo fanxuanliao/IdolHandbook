@@ -1,0 +1,63 @@
+.calendarContainer {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 300px;
+    margin: auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.monthSwitchGroup {
+    display: flex;
+    gap: 10px;
+}
+
+.monthSwitch {
+    border: none;
+    background-color: #e4e4e4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.monthSwitch:hover {
+    background-color: #d4d4d4;
+}
+
+.monthLabel {
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.weekdays {
+    margin-bottom: 10px;
+}
+
+.weekday {
+    padding: 10px;
+    text-align: center;
+}
+
+.day {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+}

@@ -2,14 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-html {
-  font-size: 16px;
-  /* 預設字型大小，可基於此設置 rem 值 */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* 字型 */
-}
-
-.app-container {
+.appContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -18,7 +11,7 @@ html {
   /* 設置高度 */
 }
 
-.calendar-container {
+.calendarContainer {
   /* flex-grow, flex-shrink, flex-basis */
   flex: 0 0 47%;
   background: #fff;
@@ -31,9 +24,10 @@ html {
   padding: 20px;
 }
 
-.diary-container {
+.diaryContainer {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  /* 佔據剩餘的空間 */
   height: 95vh;
   /* 設計日記容器的樣式 */
   margin: 2.5vh 5% 2.5vh 1.5%;
