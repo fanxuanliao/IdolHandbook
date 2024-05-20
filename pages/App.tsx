@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex w-full h-screen">
-      <div className="w-1/2 p-5">
+      <div className="flex-1 p-5">
         <Calendar onSelectDate={handleSelectDate} />
       </div>
       <div className="w-1/2 p-5">

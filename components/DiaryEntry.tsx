@@ -24,14 +24,14 @@ const DiaryEntry: React.FC<DiaryEntryProps> = ({ onSave }) => {
     };
 
     return (
-        <div className="flex flex-col h-full w-full p-5">
+        <div className="flex flex-col h-full w-full p-5 bg-gray-50 bg-grid-pattern bg-20px rounded">
             <textarea
-                className="flex-grow w-full p-2 border border-gray-300 rounded resize-none outline-none placeholder-gray-400"
+                className="flex-grow w-full p-2 rounded resize-none outline-none placeholder-gray-400 bg-transparent"
                 value={entry}
                 onChange={(e) => setEntry(e.target.value)}
                 placeholder="寫下今天的心情..."
             ></textarea>
-            <button className="mt-3 p-2 bg-green-500 text-white rounded" onClick={handleSave}>儲存</button>
+            <button className="mt-3 p-2 bg-gray-400 text-white rounded" onClick={handleSave}>儲存</button>
         </div>
     );
 };

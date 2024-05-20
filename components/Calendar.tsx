@@ -25,7 +25,7 @@ const Calendar: React.FC<CalendarProps> = ({ onSelectDate }) => {
     const paddingDaysAfter = lastDayOfMonth === 0 ? 0 : 7 - lastDayOfMonth;
 
     return (
-        <div className="p-5 border border-gray-300 rounded max-w-lg mx-auto">
+        <div className="h-full p-5 border border-gray-300 rounded">
             <div className="flex justify-between items-center mb-5">
                 <span className="font-bold flex-grow text-center">
                     {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
@@ -46,15 +46,15 @@ const Calendar: React.FC<CalendarProps> = ({ onSelectDate }) => {
             </div>
             <div className="grid grid-cols-7 gap-2">
                 {[...Array(paddingDaysBefore)].map((_, index) => (
-                    <div key={index} className="p-2"></div>
+                    <div key={index} className="p-2 border border-gray-200 rounded"></div>
                 ))}
                 {days.map((day, index) => (
-                    <div className="p-2 text-center border border-gray-200 rounded" key={index}>
+                    <div className="p-2 text-center border border-gray-200 rounded hover:bg-blue-100" key={index}>
                         {day.getDate()}
                     </div>
                 ))}
                 {[...Array(paddingDaysAfter)].map((_, index) => (
-                    <div key={index} className="p-2"></div>
+                    <div key={index} className="p-2  border border-gray-200 rounded"></div>
                 ))}
             </div>
         </div>
